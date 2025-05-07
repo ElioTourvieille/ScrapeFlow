@@ -1,8 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ScrapeFlow
 
-## Getting Started
+ScrapeFlow is a modern web application for creating and managing data scraping workflows. Built with Next.js 15, it provides an intuitive user interface for designing automated workflows.
 
-First, run the development server:
+## Features
+
+- 🎨 Modern and responsive user interface
+- 🔄 Visual workflow creation
+- 📊 Workflow management (create, edit, delete)
+- 🔒 Secure authentication with Clerk
+- 🌙 Dark/light mode
+- 🎯 Visual flow editor
+- 📱 Responsive design
+
+## Technologies
+
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **UI**: Tailwind CSS, shadcn/ui
+- **Database**: PostgreSQL with Prisma
+- **Authentication**: Clerk
+- **State Management**: React Query
+- **Notifications**: Sonner
+- **Workflows**: React Flow
+
+## Prerequisites
+
+- Node.js 18+
+- PostgreSQL
+- Clerk account
+
+## Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/ElioTourvieille/ScrapeFlow.git
+cd ScrapeFlow
+```
+
+2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Configure environment variables
+
+```env
+DATABASE_URL="postgresql://..."
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="..."
+CLERK_SECRET_KEY="..."
+```
+
+4. Initialize the database
+
+```bash
+npx prisma migrate dev
+```
+
+5. Start the development server
 
 ```bash
 npm run dev
@@ -10,27 +69,22 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+scrape-flow/
+├── app/                    # Next.js routes and pages
+│   ├── (auth)/            # Authentication pages
+│   ├── (dashboard)/       # Main interface
+│   └── workflow/          # Workflow editor
+├── components/            # Reusable React components
+├── lib/                   # Utilities and configurations
+├── prisma/               # Prisma schema and migrations
+└── public/               # Static assets
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
