@@ -18,7 +18,7 @@ ScrapeFlow is a modern web application for creating and managing data scraping w
 - **UI**: Tailwind CSS, shadcn/ui
 - **Database**: PostgreSQL with Prisma
 - **Authentication**: Clerk
-- **State Management**: React Query
+- **State Management**: TanStack Query
 - **Notifications**: Sonner
 - **Workflows**: React Flow
 
