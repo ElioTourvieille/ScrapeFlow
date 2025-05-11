@@ -8,6 +8,7 @@ import {
   Background,
   BackgroundVariant,
   Controls,
+  FitViewOptions,
   ReactFlow,
   useEdgesState,
   useNodesState,
@@ -17,6 +18,9 @@ import "@xyflow/react/dist/style.css";
 const nodeTypes = {
   FlowScrapeNode: NodeComponent,
 };
+
+const snapGrid: [number, number] = [50, 50];
+const fitViewOptions: FitViewOptions = { padding: 1 };
 
 function FlowEditor({ workflow }: { workflow: Workflow }) {
   const [nodes, setNodes, onNodesChange] = useNodesState([
@@ -32,8 +36,12 @@ function FlowEditor({ workflow }: { workflow: Workflow }) {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         nodeTypes={nodeTypes}
+        snapGrid={snapGrid}
+        snapToGrid
+        fitView
+        fitViewOptions={fitViewOptions}
       >
-        <Controls position="top-left" />
+        <Controls position="top-left" fitViewOptions={fitViewOptions} />
         <Background variant={BackgroundVariant.Dots} gap={14} size={1} />
       </ReactFlow>
     </main>

@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useReactFlow } from "@xyflow/react";
 
 export function NodeCard({
   children,
@@ -11,8 +12,24 @@ export function NodeCard({
   nodeId: string;
   isSelected: boolean;
 }) {
+  const { getNode, setCenter } = useReactFlow();
+  const node = getNode(nodeId);
+
   return (
     <div
+      onDoubleClick={() => {
+        if (!node) return;
+        const { position, measured } = node;
+        if (!position || !measured) return;
+        const { width, height } = measured;
+        const x = position.x + width! / 2;
+        const y = position.y + height! / 2;
+        if (x === undefined || y === undefined) return;
+        setCenter(x, y, {
+          duration: 500,
+          zoom: 1,
+        });
+      }}
       className={cn(
         "rounded-md cursor-pointer bg-background border-2 border-separate w-[420px] text-xs gap-1 flex flex-col",
         isSelected && "border-primary"

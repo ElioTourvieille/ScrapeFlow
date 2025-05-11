@@ -1,0 +1,38 @@
+"use client"
+
+interface Props {
+    title: string
+    subtitle?: string
+    workflowId: string
+}
+
+import TooltipWrapper from '@/components/TooltipWrapper'
+import { Button } from '@/components/ui/button'
+import { ChevronLeftIcon } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import React from 'react'
+import SaveBtn from './SaveBtn'
+
+function TopBar({ title, subtitle, workflowId }: Props) {
+  const router = useRouter()
+  return (
+    <header className="flex justify-between p-2 border-p-2 border-separate w-full h-[60px] sticky top-0 bg-background z-10">
+        <div className="flex flex-1 gap-1">
+            <TooltipWrapper content="Back">
+                <Button variant="ghost" size="icon" onClick={() => router.back()}>
+                    <ChevronLeftIcon size={20} />
+                </Button>
+            </TooltipWrapper>
+            <div>
+                <p className='font-bold text-ellipsis truncate'>{title}</p>
+                {subtitle && <p className='text-sm text-muted-foreground text-ellipsis truncate'>{subtitle}</p>}
+            </div>
+        </div>
+        <div className="flex flex-1 gap-1 justify-end">
+            <SaveBtn workflowId={workflowId} />
+        </div>
+    </header>
+  )
+}
+
+export default TopBar
