@@ -1,5 +1,5 @@
 import { AppNode } from "@/types/appNode";
-import { TaskType } from "@/types/TaskType";
+import { TaskType } from "@/types/task";
 
 export function CreateFlowNode(
   nodeType: TaskType,
