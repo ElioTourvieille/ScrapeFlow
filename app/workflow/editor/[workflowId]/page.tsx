@@ -7,7 +7,7 @@ async function WorkflowEditorPage({
 }: {
   params: { workflowId: string };
 }) {
-  const { workflowId } = params;
+  const workflowId = (await params).workflowId;
   const { userId } = await auth();
 
   if (!userId) return <div>Unauthorized</div>;

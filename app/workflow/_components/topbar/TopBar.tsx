@@ -12,6 +12,7 @@ import { ChevronLeftIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import SaveBtn from './SaveBtn'
+import ExecuteBtn from './ExecuteBtn'
 
 function TopBar({ title, subtitle, workflowId }: Props) {
   const router = useRouter()
@@ -25,10 +26,14 @@ function TopBar({ title, subtitle, workflowId }: Props) {
             </TooltipWrapper>
             <div>
                 <p className='font-bold text-ellipsis truncate'>{title}</p>
-                {subtitle && <p className='text-sm text-muted-foreground text-ellipsis truncate'>{subtitle}</p>}
+                {subtitle && 
+                <p className='text-sm text-muted-foreground text-ellipsis truncate'>
+                    {subtitle}
+                </p>}
             </div>
         </div>
         <div className="flex flex-1 gap-1 justify-end">
+            <ExecuteBtn workflowId={workflowId} />
             <SaveBtn workflowId={workflowId} />
         </div>
     </header>

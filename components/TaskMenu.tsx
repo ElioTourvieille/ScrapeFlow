@@ -13,7 +13,7 @@ import { Button } from "./ui/button";
 
 export default function TaskMenu() {
   return (
-    <aside className="w-[340px] min-w-[340px] max-w-[340px] h-full border-r-2 border-separate p-2 px-4 overflow-auto">
+    <aside className="w-[340px] min-w-[250px] max-w-[340px] h-full border-r-2 border-separate p-2 px-4 overflow-auto">
         <Accordion type="multiple" className="w-full">
             <AccordionItem value="extraction">
                 <AccordionTrigger className="font-bold">
